@@ -1,0 +1,33 @@
+{
+  "name": "pixit-login",
+  "version": "1.0.0",
+  "description": "Simple login page made with NodeJs e MySql",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/MatheusLasserre/pixit-login.git"
+  },
+  "keywords": [
+    "test",
+    "nodejs",
+    "mysql",
+    "express",
+    "ejs"
+  ],
+  "author": "Matheus Lasserre",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MatheusLasserre/pixit-login/issues"
+  },
+  "homepage": "https://github.com/MatheusLasserre/pixit-login#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1"
+  }
+}
