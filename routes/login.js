@@ -3,13 +3,14 @@ require('dotenv').config();
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
+const { verifyJwtLogin } = require('../middlewares/cookieJwtAuth');
 
 
 //All login routes that doesn't need authentication
 
 
 
-router.get('/',(req, res) => {
+router.get('/', verifyJwtLogin,(req, res) => {
     return res.render('index.ejs')
 });
 
@@ -30,6 +31,7 @@ router.post('/login', async (req, res) => {
 
         return res.redirect('/admin');
     }else{
+        res.clearCookie('pixit_cookie');
         console.log('Autenticação falhou')
         res.redirect('/')
     }

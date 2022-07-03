@@ -8,6 +8,11 @@
     font-family: Raleway, 'Times New Roman', Times, serif;
 }
 
+.logoContainer {
+    margin-top: 10px;
+    margin-bottom: -10px;
+}
+
 .headline {
     font-size: 1.6rem;
     letter-spacing: 1.2px;
@@ -268,6 +273,11 @@
 
 
 @media screen and (min-width:1140px) {
+
+    .logoContainer {
+        margin-top: -30px;
+        margin-bottom: 30px;
+    }
 
     .headline {
         font-size: 2.5rem;

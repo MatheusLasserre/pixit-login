@@ -8,6 +8,7 @@ async function createuser(user) {
     const connection = await connectMySql();
     const hashedPassword = await hashPassword(user.password);
     user.password = hashedPassword;
+    user.email = user.email.toLowerCase();
 
     try {
         let sql = 'INSERT INTO users SET ?';
@@ -77,23 +78,30 @@ async function signInUser(user) {
             });
 
         });
+        if(!storedUser){
+            throw new Error('Login Error. Check your login info.')
+          
+        }
         
         // matching password
         const passwordMatch = await validatePassword(user.password, storedUser.password);
         console.log(passwordMatch)
         if(!passwordMatch){
             console.log('Password mismatch')
-            return null
+            throw new Error('Login Error. Check your login info.');
         }
         // deleting password and returning complete user
         delete storedUser.password;
         return storedUser;
 
     } catch (error) {
-        console.log(error)
+        console.log(error.message)
+        connection.destroy();
         return null
     }
 
 }
+
+
 
 module.exports = { createuser, getUsers, modifyUser, deleteUser, signInUser }

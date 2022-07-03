@@ -1,5 +1,6 @@
 const mysql = require('mysql')
-const util = require('util')
+const util = require('util');
+const { createuser } = require('../users/users');
 
 // Script for inicialize database, and create Tables.
 async function createInitialDB() {
@@ -34,6 +35,13 @@ async function createInitialDB() {
     let createUsersTable = 'CREATE TABLE users(id int AUTO_INCREMENT, name VARCHAR(45), email VARCHAR(255), password VARCHAR(255), PRIMARY KEY (id))';
     await query(createUsersTable);
     console.log('Users TABLE created. Proceding...');
+    let admin = {
+        name: 'admin',
+        email: 'admin@pixit.com.br',
+        password: '12345'
+    }
+    await createuser(admin);
+    console.log('Admin criado:', admin)
 
     console.log('Setup completed. run "npm start" to start the application.');
     connection.destroy();

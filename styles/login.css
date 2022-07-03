@@ -10,6 +10,7 @@
     width: 100vw;
     background:linear-gradient(142deg, rgba(134,62,201,1) 0%, rgba(134,62,201,1) 22%, rgba(32,36,97,1) 91%, rgba(5,19,116,1) 100%, rgba(0,0,0,1));
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     /* padding-bottom: 60px; */
@@ -17,6 +18,11 @@
     overflow: hidden;
     margin: auto;
     
+}
+
+.logoContainer {
+    margin-top: 70px;
+    margin-bottom: -70px;
 }
 
 
@@ -163,5 +169,11 @@
     .formInput {
         width: 339px;
     }
+
+    .logoContainer {
+        margin-top: 210px;
+        margin-bottom: -210px;
+    }
+    
 
 }

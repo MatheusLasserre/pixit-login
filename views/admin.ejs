@@ -11,6 +11,9 @@
 
 <body onload="getListOfUsers()">
     <div class="Container">
+        <div class="logoContainer">
+            <img src="/pixit-logo.png" alt="Logo da Pixit">
+        </div>
         <h1 class="headline">Área do administrador</h1>
         <p class="PageTitle">Bem-vindo, <%= user.name %>.</p>
         <div class="boxesContainer">
@@ -18,7 +21,7 @@
                 <div class="formFlexContainer">
                     <div>
                         <p class="FormTitle">Criar usuário</p>
-                        <form method="POST" autocomplete="off" action="/users">
+                        <form method="POST" autocomplete="off" action="/users" onsubmit="validateFields()">
                             <label class="formLabel"  for="name">Nome:</label>
                             <input class="formInput" placeholder="Nome do usuário" type="text" name="name" id="name" required>
                             <label class="formLabel" for="email">Email:</label>
@@ -42,6 +45,10 @@
                 </div>
             </div>
         </div>
+        
+                    <div>
+                        <button class="formSubmit" onclick="logout()">LOGOUT</button>
+                    </div>
 
         <!-- <div>
             <p>Editar usuários</p>
@@ -117,6 +124,29 @@
 
             document.getElementById('userlist-container').append(wrapperDiv);
         }
+    }
+
+    function validateFields(e) {
+        let emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        let email = document.getElementById('email');
+        if(!email.value.match(emailRegex)){
+            alert('Email inválido');
+            return false
+        }
+        let password = document.getElementById('password');
+        if(password.value.trim().length === 0 || password.value == null) {
+            alert('Escolha uma senha que não seja vazia.');
+            return false
+        }
+
+        return true;
+
+    }
+
+    function logout() {
+        fetch('/admin/logout').then(res => {
+            window.location.assign('/');
+        });
     }
 
     document.getElementById('list-users').onclick = getListOfUsers;

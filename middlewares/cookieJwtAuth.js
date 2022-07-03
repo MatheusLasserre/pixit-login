@@ -15,4 +15,17 @@ function verifyJwt(req, res, next) {
     }
 }
 
-module.exports = verifyJwt;
+function verifyJwtLogin(req, res, next) {
+    const token = req.cookies.pixit_cookie;
+
+    try {
+        const user = jwt.verify(token, process.env.TOKEN_SECRET);
+        req.user = user;
+        return res.redirect('/admin')
+        
+    } catch (error) {
+        next();
+    }
+}
+
+module.exports = {verifyJwt, verifyJwtLogin };
