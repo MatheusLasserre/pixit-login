@@ -3,8 +3,8 @@
 -> Setup EJS files[]
 
 -> Login page[]
-    -> Form[]
-    -> Request function[]
+    -> Form[x]
+    -> Request function[x]
     -> Design[]
 
 -> Admin Dashboard[]
@@ -21,9 +21,9 @@
 ## Server-Side
 
 -> Express
-    -> Create Server.js server[]
-    -> Create routes folder and files[]
-    -> Setup express-viewport[]
+    -> Create Server.js server[x]
+    -> Create routes folder and files[x]
+    -> Setup express-viewport[x]
 
 
 -> Database

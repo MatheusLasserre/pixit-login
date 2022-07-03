@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="/admin.css" rel="stylesheet" type="text/css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixit - Admin</title>
+</head>
+
+<body onload="getListOfUsers()">
+    <div class="Container">
+        <h1 class="headline">Área do administrador</h1>
+        <p class="PageTitle">Bem-vindo, <%= user.name %>.</p>
+        <div class="boxesContainer">
+            <div class="formBox">
+                <div class="formFlexContainer">
+                    <div>
+                        <p class="FormTitle">Criar usuário</p>
+                        <form method="POST" autocomplete="off" action="/users">
+                            <label class="formLabel"  for="name">Nome:</label>
+                            <input class="formInput" placeholder="Nome do usuário" type="text" name="name" id="name" required>
+                            <label class="formLabel" for="email">Email:</label>
+                            <input class="formInput" placeholder="Email do usuário" type="text" name="email" id="email" required>
+                            <label class="formLabel" for="password">Senha:</label>
+                            <input class="formInput" placeholder="Senha do usuário" type="password" name="password" id="password" required>
+                            <button class="formSubmit" type="submit">Criar usuário</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="formBox">
+                <div class="formFlexContainer">
+                    <div class="listContainer">
+
+                        <p class="FormTitle">Lista de usuários</p>
+                        <div class="usersBox" id="userlist-container">
+                        </div>
+                        <button class="formSubmit2" type="button" id="list-users">Atualizar Lista</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div>
+            <p>Editar usuários</p>
+            <form method="POST" action="/admin">
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" id="email" required>
+                </div>
+                <div>
+                    <label for="password">Senha:</label>
+                    <input type="password" name="password" id="password" required>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+        </div> -->
+    </div>
+
+</body>
+
+<script>
+
+    async function deleteUser(e) {
+
+        const dataObject = { id: e.target.id }
+
+        // Enconding object to follow HTML FORM submit defaults
+        const formBody = Object.entries(dataObject).map(([key, value]) => encodeURIComponent(key) + '=' + encodeURIComponent(value)).join('&');
+
+        try {
+            console.log(e.target.id)
+            await fetch('/users', {
+                method: 'DELETE',
+                body: formBody,
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+                },
+            });
+
+            getListOfUsers();
+        } catch (error) {
+            throw error
+        }
+
+    }
+
+    async function getListOfUsers() {
+        const users = await fetch('/users', {
+            method: 'GET'
+        });
+        const userList = await users.json();
+        document.getElementById('userlist-container').textContent = '';
+
+        for (const user of userList) {
+            let wrapperDiv = document.createElement('div');
+            wrapperDiv.className = 'userItem'
+
+            let userName = document.createElement('p');
+            userName.innerHTML = user.name;
+            userName.className = 'userItemName'
+
+            let userEmail = document.createElement('p');
+            userEmail.innerHTML = user.email;
+            userEmail.className = 'userItemEmail'
+
+            let deleteUserIcon = document.createElement('p');
+            deleteUserIcon.innerHTML = 'X';
+            deleteUserIcon.className = 'userItemDelete'
+            deleteUserIcon.setAttribute('id', user.id)
+            deleteUserIcon.onclick = deleteUser;
+            wrapperDiv.append(userName);
+            wrapperDiv.append(userEmail);
+            wrapperDiv.append(deleteUserIcon);
+
+            document.getElementById('userlist-container').append(wrapperDiv);
+        }
+    }
+
+    document.getElementById('list-users').onclick = getListOfUsers;
+</script>
+
+</html>

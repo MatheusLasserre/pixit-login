@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;0,700;0,800;1,300&display=swap');
+
+.html, .body, * {
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+.Container {
+    height: 100vh;
+    width: 100vw;
+    background:linear-gradient(142deg, rgba(134,62,201,1) 0%, rgba(134,62,201,1) 22%, rgba(32,36,97,1) 91%, rgba(5,19,116,1) 100%, rgba(0,0,0,1));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding-bottom: 60px; */
+    font-family: Raleway, 'Times New Roman', Times, serif;
+    overflow: hidden;
+    margin: auto;
+    
+}
+
+
+
+.LoginBox {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #E8EDFF;
+    border-radius: 7px;
+    width: 335px;
+    height: 377px;
+    /* margin-top: 0px; */
+    overflow: hidden;
+    
+}
+
+.LoginFlexContainer {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    /* justify-content: center; */
+    column-gap: 60px;
+    padding-left: 28px;
+    transition: all ease-in-out 0.5s;
+    width: 295px;
+    height: 337px;
+
+}
+
+
+.FormTitle {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    line-height: 2.113rem;
+    color: rgb(134,62,201);
+    text-align: left;
+    width: 239px;
+    margin-bottom: 30px;
+    margin-top: 15px;
+    /* padding-top: 15px; */
+
+}
+
+
+.formLabel {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.878rem;
+    letter-spacing: 1.2px;
+    color: rgb(134,62,201);
+    width: 239px;
+    margin-bottom: 9px;
+}
+
+.formInput {
+    width: 239px;
+    height: 35px;
+    display: block;
+    background-color: #E4E4E4;
+    border-radius: 7px;
+    border: none;
+    border-color: rgb(134,62,201);
+    margin-bottom: 35px;
+    padding-left: 20px;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #3c3c3c;
+    font-family: Raleway, 'Times New Roman', Times, serif;
+
+}
+
+.formInput:focus {
+    outline: none;
+    border:1px solid rgb(134,62,201);
+  }
+.loginError {
+    color: red;
+    font-weight: 400;
+    line-height: 3rem;
+    font-size: 1.1rem; 
+    margin-top: -35px;
+    margin-bottom: 5px;
+    text-align: center;
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+.formSubmit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    background: linear-gradient(142deg, rgba(134,62,201,1) 0%, rgba(134,62,201,1) 72%, rgba(32,36,97,1) 98%, rgba(5,19,116,1) 120%, rgba(0,0,0,1));
+    border-radius: 7px;
+    border-style: none;
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+    letter-spacing: 0.6px;
+    color: #f5f5f5;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    width: 118px;
+    height: 24px;
+    padding-top: 1px;
+    cursor: pointer;
+    transition: all ease-in-out 0.2s;
+    font-family: Raleway, 'Times New Roman', Times, serif;
+
+
+}
+
+.formSubmit:hover {
+    filter: brightness(1.1);
+}
+
+
+
+@media screen and (min-width:960px) {
+    .LoginBox {
+        width: 461px;
+        height: 393px;
+        
+    }
+
+    .LoginFlexContainer {
+        padding-left: 61px;
+        width: 461px;
+        height: 343px;
+        /* margin-bottom: 15px;
+        padding-top: 30px; */
+
+    }
+
+    .formInput {
+        width: 339px;
+    }
+
+}

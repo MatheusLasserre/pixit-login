@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="/login.css" rel="stylesheet" type="text/css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pixit - Login</title>
 </head>
-<body> 
-    <div>
-        <h1>Login</h1>
-        <form action="#">
-            <div>
-                <label for="email" >Email:</label>
-                <input type="text" name="email" id="email">
+<body>
+    <div class="Container">
+
+        <div class="LoginBox">
+            <div class="LoginFlexContainer">
+                <div>
+                    <p class="FormTitle">Login</p class="FormTitle">
+                    <form method="POST" action="/login">
+                            <label class="formLabel" for="email" >Email:</label>
+                            <input class="formInput" type="text" name="email" id="email" required>
+                            <label class="formLabel" for="password" >Senha:</label>
+                            <input class="formInput" type="password" name="password" id="password" required>
+                        <button class="formSubmit" type="submit">Login</button>
+                    </form>
+                </div>
             </div>
-            <div>
-                <label for="password" >Senha:</label>
-                <input type="password" name="password" id="password">
-            </div>
-            <button type="submit">Login</button>
-        </form>
+        </div>
     </div>
     
 </body>
