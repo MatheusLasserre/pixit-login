@@ -42,7 +42,14 @@ admin = {
 ```
 Para modificar o setup padrão, basta acessar o arquivo /utils/setup/sql-setup.js.
 
-Caso a conexão com o seu banco possua HOST 'localhost', e uma DATABASE 'lasserrepixit' e uma TABLE 'users(id int AUTO_INCREMENT, name VARCHAR(45), email VARCHAR(255), password VARCHAR(255), PRIMARY KEY (id))' ou similar, pode seguir para o passo de iniciar a aplicação.
+Caso a conexão com o seu banco possua:
+```javascript
+HOST = 'localhost'
+DATABASE = 'lasserrepixit'
+TABLE = 'users(id int AUTO_INCREMENT, name VARCHAR(45), email VARCHAR(255), password VARCHAR(255), PRIMARY KEY (id))';
+```
+
+ ou similar, pode seguir para o passo de iniciar a aplicação.
 
 ## Iniciando a aplicação
 
