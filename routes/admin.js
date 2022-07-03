@@ -1,6 +1,5 @@
 const express = require('express');
 const {verifyJwt} = require('../middlewares/cookieJwtAuth');
-const { createuser } = require('../utils/users/users');
 const router = express.Router();
 
 

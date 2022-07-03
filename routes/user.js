@@ -5,12 +5,13 @@ const router = express.Router();
 
 //All app routes that need authentication
 
-
+// route for get all users
 router.get('/', async (req, res) => {
     const users = await getUsers();
     res.json(users);
 });
 
+// route to create user
 router.post('/', async (req, res) => {
     const user = {
         name: req.body.name,
@@ -28,6 +29,7 @@ router.post('/', async (req, res) => {
 
 })
 
+// route for user deletion
 router.delete('/', async (req, res) => {
     const id = req.body.id
     try {

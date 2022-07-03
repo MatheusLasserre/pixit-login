@@ -22,12 +22,15 @@
                     <div>
                         <p class="FormTitle">Criar usuário</p>
                         <form method="POST" autocomplete="off" action="/users" onsubmit="validateFields()">
-                            <label class="formLabel"  for="name">Nome:</label>
-                            <input class="formInput" placeholder="Nome do usuário" type="text" name="name" id="name" required>
+                            <label class="formLabel" for="name">Nome:</label>
+                            <input class="formInput" placeholder="Nome do usuário" type="text" name="name" id="name"
+                                required>
                             <label class="formLabel" for="email">Email:</label>
-                            <input class="formInput" placeholder="Email do usuário" type="text" name="email" id="email" required>
+                            <input class="formInput" placeholder="Email do usuário" type="text" name="email" id="email"
+                                required>
                             <label class="formLabel" for="password">Senha:</label>
-                            <input class="formInput" placeholder="Senha do usuário" type="password" name="password" id="password" required>
+                            <input class="formInput" placeholder="Senha do usuário" type="password" name="password"
+                                id="password" required>
                             <button class="formSubmit" type="submit">Criar usuário</button>
                         </form>
                     </div>
@@ -45,31 +48,16 @@
                 </div>
             </div>
         </div>
-        
-                    <div>
-                        <button class="formSubmit" onclick="logout()">LOGOUT</button>
-                    </div>
 
-        <!-- <div>
-            <p>Editar usuários</p>
-            <form method="POST" action="/admin">
-                <div>
-                    <label for="email">Email:</label>
-                    <input type="text" name="email" id="email" required>
-                </div>
-                <div>
-                    <label for="password">Senha:</label>
-                    <input type="password" name="password" id="password" required>
-                </div>
-                <button type="submit">Login</button>
-            </form>
-        </div> -->
+        <div>
+            <button class="formSubmit" onclick="logout()">LOGOUT</button>
+        </div>
     </div>
 
 </body>
 
 <script>
-
+    
     async function deleteUser(e) {
 
         const dataObject = { id: e.target.id }
@@ -129,12 +117,12 @@
     function validateFields(e) {
         let emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
         let email = document.getElementById('email');
-        if(!email.value.match(emailRegex)){
+        if (!email.value.match(emailRegex)) {
             alert('Email inválido');
             return false
         }
         let password = document.getElementById('password');
-        if(password.value.trim().length === 0 || password.value == null) {
+        if (password.value.trim().length === 0 || password.value == null) {
             alert('Escolha uma senha que não seja vazia.');
             return false
         }

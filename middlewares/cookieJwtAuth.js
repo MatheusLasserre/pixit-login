@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 // Middleware to verify JWT auth and
-// to persist user data
+// to persist user data through pages
 function verifyJwt(req, res, next) {
     const token = req.cookies.pixit_cookie;
 

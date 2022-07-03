@@ -27,9 +27,11 @@ async function getUsers() {
 
     try {
         let sql = 'SELECT * FROM users';
+        // turning queries into promises to prevent unintended behavior
         return new Promise(function(resolve, reject){
             connection.query(sql, (err, result, fields) => {
                 if(err) throw err;
+                // Serializing received data and resolving the promise
                 resolve(JSON.parse(JSON.stringify(result)));
             });
 
@@ -39,20 +41,17 @@ async function getUsers() {
     }
 }
 
-async function modifyUser(id, user) {
-    // modify user
-}
-
 async function deleteUser(id) {
     
     const connection = await connectMySql();
 
     try {
         let sql = 'DELETE from users WHERE id = ?';
+        // turning queries into promises to prevent unintended behavior
         return new Promise(function(resolve, reject){
             connection.query(sql, id, (err, result, fields) => {
                 if(err) throw err;
-                console.log(JSON.parse(JSON.stringify(result)))
+                // Serializing received data and resolving the promise
                 resolve(JSON.parse(JSON.stringify(result)));
             });
 
@@ -73,7 +72,7 @@ async function signInUser(user) {
         const storedUser = await new Promise(function(resolve, reject){
             connection.query(sql, user.email, (err, result, fields) => {
                 if(err) throw err;
-                console.log(JSON.parse(JSON.stringify(result)))
+                // Serializing received data and resolving the promise
                 resolve(JSON.parse(JSON.stringify(result))[0]);
             });
 
@@ -85,7 +84,6 @@ async function signInUser(user) {
         
         // matching password
         const passwordMatch = await validatePassword(user.password, storedUser.password);
-        console.log(passwordMatch)
         if(!passwordMatch){
             console.log('Password mismatch')
             throw new Error('Login Error. Check your login info.');
@@ -104,4 +102,4 @@ async function signInUser(user) {
 
 
 
-module.exports = { createuser, getUsers, modifyUser, deleteUser, signInUser }
+module.exports = { createuser, getUsers, deleteUser, signInUser }

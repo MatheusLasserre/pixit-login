@@ -1,5 +1,6 @@
 const mysql = require('mysql');
 
+// exporting connection function to prevent duplicated code across files
 async function connectMySql() {
     const connection = mysql.createConnection({
         host: 'localhost',
@@ -12,8 +13,6 @@ async function connectMySql() {
             console.log('Error:', err)
             return
         }
-
-        console.log('Connected to lasserrepixit.', connection.threadId)
     })
 
     
