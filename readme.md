@@ -75,5 +75,5 @@ Nessa lista aparece automaticamente os usuários criados através do card de cri
 
 ## Observação sobre JWT;
 
-Por padrão, eu enviando o arquivo .env com um TOKEN de exemplo. Ele é o suficiente para o funcionamento da aplicação, mas caso queira, pode ficar à vontade para modificá-lo.
+Por padrão, estou enviando o arquivo .env com um TOKEN de exemplo. Ele é o suficiente para o funcionamento da aplicação mas, caso queira, pode ficar à vontade para modificá-lo.
 
